@@ -16,7 +16,7 @@ rm -rf /usr/bin/ruby /usr/bin/gem /usr/bin/rvm /usr/local/rvm
 
 echo 'Installing RVM and Ruby 1.9.3'
 
-curl -#L0 https://rvm.io/mpapis.asc
+wget https://rvm.io/mpapis.asc
 
 if [ "${OS}" == 'debian' ] || [ "${OS}" == 'ubuntu' ]; then
 	gpg --import mpapis.asc

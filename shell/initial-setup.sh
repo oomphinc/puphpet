@@ -20,6 +20,13 @@ fi
 touch '/.puphpet-stuff/vagrant-core-folder.txt'
 echo "${VAGRANT_CORE_FOLDER}" > '/.puphpet-stuff/vagrant-core-folder.txt'
 
+if [[ ! -f '/.puphpet-stuff/puppetlabs-gpg' ]] && [[ "${OS}" == 'debian' || "${OS}" == 'ubuntu' ]]; then
+    wget https://apt.puppetlabs.com/pubkey.gpg
+    apt-key add pubkey.gpg
+
+    touch '/.puphpet-stuff/puppetlabs-gpg'
+fi
+
 # Adding this here with a datestamped filename for future issues like #1189
 # apt repos become stale, Ubuntu/Debian move stuff around and break existing
 # boxes that no longer require apt-get update. Force it one more time. Update
